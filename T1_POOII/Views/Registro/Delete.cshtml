@@ -1,0 +1,243 @@
+﻿@model T1_POOII.Models.Profesor
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar Profesor</h2>
+<p class="advertencia">⚠️ ¿Estás seguro que deseas eliminar este registro?</p>
+
+<div class="detail-card">
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.DNI)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.DNI)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Nombre)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Nombre)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Apellidos)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Apellidos)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Carrera)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Carrera)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Correo)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Correo)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Edad)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Edad)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Sueldo)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Sueldo)</span>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-botones">
+            <button type="button" class="btn-eliminar" onclick="mostrarModal()">Sí, eliminar</button>
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn-cancelar" })
+        </div>
+    }
+</div>
+
+<!-- Modal -->
+<div id="modalConfirm" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+        <h3>⚠️ ¡Atención!</h3>
+        <p>Si presionas <strong>Eliminar</strong>, ya no se podrán recuperar los datos de este profesor.</p>
+        <p>¿Qué deseas hacer?</p>
+        <div class="modal-botones">
+            <button type="button" class="btn-eliminar-final" onclick="confirmarEliminar()">🗑️ Eliminar</button>
+            @Html.ActionLink("✏️ Solo quiero editar", "Edit", new { id = Model.DNI }, new { @class = "btn-solo-editar" })
+        </div>
+    </div>
+</div>
+
+<script>
+    function mostrarModal() {
+        document.getElementById('modalConfirm').style.display = 'flex';
+    }
+    function confirmarEliminar() {
+        document.querySelector('form').submit();
+    }
+</script>
+<style>
+    h2 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .advertencia {
+        text-align: center;
+        color: #e53935;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+
+    .detail-card {
+        max-width: 550px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 35px 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        border-top: 4px solid #e53935;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #fce4e4;
+    }
+
+        .detail-row:last-of-type {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        font-weight: bold;
+        color: #e53935;
+        flex: 1;
+    }
+
+    .detail-value {
+        flex: 2;
+        color: #333;
+        text-align: right;
+    }
+
+    .form-botones {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .btn-eliminar {
+        background-color: #e53935;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(229,57,53,0.3);
+    }
+
+        .btn-eliminar:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+
+    .btn-cancelar {
+        color: #555;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .btn-cancelar:hover {
+            color: #0288D1;
+        }
+
+    /* Modal */
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        backdrop-filter: blur(3px);
+    }
+
+    .modal-box {
+        background: white;
+        border-radius: 16px;
+        padding: 40px 45px;
+        max-width: 420px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        border-top: 5px solid #e53935;
+        animation: popIn 0.2s ease;
+    }
+
+    @@keyframes popIn {
+        from { transform: scale(0.85); opacity: 0; }
+        to   { transform: scale(1);    opacity: 1; }
+    }
+
+        .modal-box h3 {
+            color: #e53935;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .modal-box p {
+            color: #555;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 0.97rem;
+        }
+
+    .modal-botones {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin-top: 28px;
+    }
+
+    .btn-eliminar-final {
+        background-color: #e53935;
+        color: white;
+        border: none;
+        padding: 11px 20px;
+        border-radius: 25px;
+        font-weight: bold;
+        font-size: 0.95rem;
+        cursor: pointer;
+        flex: 1;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(229,57,53,0.3);
+    }
+
+        .btn-eliminar-final:hover {
+            background-color: #b71c1c;
+            transform: scale(1.04);
+        }
+
+    .btn-solo-editar {
+        background-color: #29B6F6;
+        color: white !important;
+        padding: 11px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 0.95rem;
+        flex: 1;
+        display: inline-block;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(41,182,246,0.3);
+    }
+
+        .btn-solo-editar:hover {
+            background-color: #0288D1;
+            color: white !important;
+            transform: scale(1.04);
+        }
+</style>

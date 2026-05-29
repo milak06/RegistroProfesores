@@ -1,0 +1,119 @@
+﻿@model T1_POOII.Models.Profesor
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles del Profesor</h2>
+
+<div class="detail-card">
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.DNI)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.DNI)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Nombre)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Nombre)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Apellidos)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Apellidos)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Carrera)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Carrera)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Correo)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Correo)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Edad)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Edad)</span>
+    </div>
+    <div class="detail-row">
+        <span class="detail-label">@Html.DisplayNameFor(model => model.Sueldo)</span>
+        <span class="detail-value">@Html.DisplayFor(model => model.Sueldo)</span>
+    </div>
+
+    <div class="form-botones">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.DNI }, new { @class = "btn-guardar" })
+        @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn-cancelar" })
+    </div>
+</div>
+
+<style>
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .detail-card {
+        max-width: 550px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 35px 40px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #e1f5fe;
+    }
+
+        .detail-row:last-of-type {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        font-weight: bold;
+        color: #0288D1;
+        flex: 1;
+    }
+
+    .detail-value {
+        flex: 2;
+        color: #333;
+        text-align: right;
+    }
+
+    .form-botones {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    .btn-guardar {
+        background-color: #29B6F6;
+        color: white !important;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+        .btn-guardar:hover {
+            background-color: #0288D1;
+            transform: scale(1.05);
+            color: white !important;
+        }
+
+    .btn-cancelar {
+        color: #555;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+        .btn-cancelar:hover {
+            color: #0288D1;
+        }
+</style>

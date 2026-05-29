@@ -1,0 +1,208 @@
+﻿@model IEnumerable<T1_POOII.Models.Profesor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de profesores</h2>
+
+<div style="text-align:center; margin: 20px 0;">
+    @Html.ActionLink("+ Nuevo Profesor", "Create", null, new { @class = "btn-nuevo" })
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DNI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Carrera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sueldo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DNI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Carrera)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sueldo)
+        </td>
+        <td class="botones">
+            @Html.ActionLink("Edit", "Edit", new { id = item.DNI }) |
+            @Html.ActionLink("Details", "Details", new { id = item.DNI }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.DNI })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<style>
+    
+
+    h2{
+        text-align:center;
+
+    }
+
+    nav {
+        background-color: #BBDEFB;
+        margin: 10px 50px;
+        border-radius: 10px;
+    }
+
+        nav ul {
+            font-size: 27px;
+            display: flex;
+            justify-content: space-around; /* <-- distribuye el espacio */
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 20px; /* opcional: espacio mínimo entre elementos */
+        }
+
+            nav ul li {
+                display: flex;
+                align-items: center;
+            }
+
+                nav ul li a:hover {
+                    color: black;
+                    font-family: Britannic
+                }
+
+    .Nuevito a {
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+        .Nuevito a:hover {
+            color: #0288D1;
+        }
+
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #29B6F6;
+            color: white;
+            font-weight: bold;
+        }
+
+        .table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #e1f5fe;
+        }
+
+    .btn-nuevo {
+        background-color: #29B6F6;
+        color: white !important;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+        .btn-nuevo:hover {
+            background-color: #0288D1;
+            transform: scale(1.05);
+            color: white !important;
+        }
+
+    .botones a {
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+        .botones a:hover {
+            color: #0288D1;
+        }
+
+    footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+    .footer-images {
+        display: flex;
+        justify-content: center; /* Centra las imágenes horizontalmente */
+        align-items: center; /* Centra las imágenes verticalmente */
+        gap: 20px; /* Espacio de 20px entre las imágenes */
+    }
+
+    footer img {
+        width: 40px; /* Ajusta el tamaño de las imágenes */
+        height: 40px;
+        transition: transform 0.3s ease; /* Suaviza la animación */
+    }
+
+        footer img:hover {
+            transform: scale(1.1); /* Aumenta el tamaño un 10% al hacer hover */
+        }
+
+    footer p {
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+</style>

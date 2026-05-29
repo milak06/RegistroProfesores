@@ -1,0 +1,197 @@
+﻿<body>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h1>Sistema de Registro de Profesores</h1>
+
+    <main>
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../Imagenes/img1.jpeg" class="d-block mx-auto" style="max-width: 100%; height: 300px; object-fit: cover;" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../Imagenes/img2.jpeg" class="d-block mx-auto" style="max-width: 100%; height: 300px; object-fit: cover;" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../Imagenes/img3.jpeg" class="d-block mx-auto" style="max-width: 100%; height: 300px; object-fit: cover;" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../Imagenes/img4.jpeg" class="d-block mx-auto" style="max-width: 100%; height: 300px; object-fit: cover;" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true" style="filter: invert(100%);"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="card-container">
+            <div class="card" style="width:50rem;">
+                <div class="card-body">
+                    <div class="card-header-custom">
+                        <h5 class="card-title">Contexto</h5>
+                    </div>
+
+                    <p class="card-text">
+                        Este sistema de registro ha sido meticulosamente diseñado con el objetivo de facilitar y optimizar el proceso de inscripción
+                        y gestión de profesores en diversas instituciones educativas. A través de una plataforma intuitiva, moderna y eficiente,
+                        permite a las instituciones registrar, organizar, consultar y administrar de manera centralizada toda la información relevante
+                        de los docentes. Además, brinda herramientas que permiten llevar un control exhaustivo sobre la asignación de asignaturas,
+                        horarios y evaluaciones, mejorando la coordinación entre los docentes y el personal administrativo. Con su capacidad de adaptarse
+                        a las necesidades particulares de cada institución, este sistema contribuye significativamente a la mejora continua de los procesos
+                        académicos y administrativos, favoreciendo la toma de decisiones informadas y la gestión eficiente del talento docente.
+                    </p>
+                </div>
+        </div>
+    </main>
+</body>
+
+<style>
+
+    body {
+        background-color: #FAFAFA;
+        color: #333333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    nav {
+        background-color: #BBDEFB;
+        margin: 10px 50px;
+        border-radius: 10px;
+    }
+
+        nav ul {
+            font-size: 27px;
+            display: flex;
+            justify-content: space-around; /* <-- distribuye el espacio */
+            align-items: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 20px; /* opcional: espacio mínimo entre elementos */
+        }
+
+            nav ul li {
+                display: flex;
+                align-items: center;
+            }
+
+                nav ul li a:hover {
+                    color: black;
+                    font-family:Britannic
+                }
+    .card-header-custom {
+        background-color: #BBDEFB;
+        padding: 10px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .carousel-item img {
+        max-width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Estilo base: para pantallas medianas o grandes */
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 5%;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: invert(100%);
+        background-size: 100% 100%;
+        width: 2rem;
+        height: 2rem;
+        width: clamp(1.5rem, 5vw, 3rem);
+        height: clamp(1.5rem, 5vw, 3rem);
+    }
+
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            filter: brightness(10); /* Intensifica el blanco */
+            background-color: rgba(0, 0, 0, 0.3); /* fondo oscuro semitransparente */
+        }
+
+    /* Estilo para centrar la tarjeta */
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 18rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-text {
+        text-align: justify;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 2rem;
+    }
+
+   
+    footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        footer h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+    .footer-images {
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+        gap: 20px; 
+    }
+
+    footer img {
+        width: 40px; 
+        height: 40px;
+        transition: transform 0.3s ease; 
+    }
+
+        footer img:hover {
+            transform: scale(1.1); 
+        }
+
+    footer p {
+        font-size: 0.9rem;
+        margin-top: 15px;
+    }
+
+</style>
